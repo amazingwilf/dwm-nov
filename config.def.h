@@ -3,6 +3,8 @@
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
+static const int swterminheritfs    = 1;        /* 1 terminal inherits fullscreen on unswallow, 0 otherwise */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 20;       /* horiz outer gap between windows and screen edge */
@@ -63,6 +65,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ .class = "Lxappearance", .isfloating = 1 },
 	{ .class = "firefox", .tags = 1 << 1 },
+	{ .class = "Alacritty", .isterminal = 1 },
+	{ .title = "Event Tester", .isfloating = 1, .noswallow = 1 },
 };
 
 /* layout(s) */
