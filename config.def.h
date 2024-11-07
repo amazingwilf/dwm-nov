@@ -12,8 +12,10 @@ static const unsigned int gappov    = 20;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+#define ICONSIZE 25   /* icon size */
+#define ICONSPACING 12 /* space between icon and title */
 static const char *fonts[]          = { "Aptos:size=16",
-										"JetBrainsMono Nerd Font:style=Bold:size=12" };
+										"JetBrainsMono Nerd Font:size=12" };
 
 static char normfgcolor[]		= "#bbbbbb";
 static char normbgcolor[]		= "#222222";
@@ -46,6 +48,7 @@ static const char *const autostart[] = {
 	"nitrogen", "--restore", NULL,
 	"dunst", NULL,
 	"picom", "-b", NULL,
+	"slstatus", NULL,
 	NULL /* terminate */
 };
 
@@ -139,6 +142,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,            		    XK_comma,  cyclelayout,    {.i = -1 } },
+	{ MODKEY,                       XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
