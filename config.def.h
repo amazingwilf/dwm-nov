@@ -12,10 +12,11 @@ static const unsigned int gappov    = 20;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int user_bh            = 6;        /* 2 is the default spacing around the bar's font */
 #define ICONSIZE 25   /* icon size */
 #define ICONSPACING 12 /* space between icon and title */
-static const char *fonts[]          = { "Aptos:size=16",
-										"JetBrainsMono Nerd Font:size=12" };
+static const char *fonts[]          = { "Noto Sans:style=Medium:size=18",
+										"JetBrainsMono Nerd Font:size=14" };
 
 static char normfgcolor[]		= "#bbbbbb";
 static char normbgcolor[]		= "#222222";
@@ -33,13 +34,13 @@ static char *colors[][4]      = {
 	[SchemeSel]		= { selfgcolor,		selbgcolor,		selbordercolor,		selfloatcolor  },
 };
 
-static const unsigned int baralpha = 0x80;
+static const unsigned int baralpha = 0xb0;
 static const unsigned int borderalpha = OPAQUE;
 
-static const unsigned int alphas[][3]      = {
+static const unsigned int alphas[][4]      = {
     /*               fg      bg        border*/
-    [SchemeNorm] = { OPAQUE, baralpha, borderalpha },
-	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+    [SchemeNorm] = { OPAQUE, baralpha, borderalpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha, borderalpha },
 };
  
 
